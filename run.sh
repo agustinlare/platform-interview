@@ -24,6 +24,9 @@ docker build ./services/account -t form3tech-oss/platformtest-account
 docker build ./services/gateway -t form3tech-oss/platformtest-gateway
 docker build ./services/payment -t form3tech-oss/platformtest-payment
 docker-compose up -d
+# Added this sleep because sometime I've got an EOF 
+# for terroform not be able to conenct to the vault
+sleep 10
 popd
 echo Applying terraform script
 pushd /vagrant/tf
