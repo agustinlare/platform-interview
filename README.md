@@ -139,6 +139,7 @@ To mitigate timeout errors caused by the containers not starting up in time for 
 ## Result
 
 ```=bash
+vagrant@f3-interview:~$ for i in $(docker ps --format '{{.Names}}' | grep -E 'account|gateway|payment'); do docker logs ${i}; done
 account service initializing....
 {"data":{"db_password":"396e73e7-34d5-4b0a-ae1b-b128aa7f9977","db_user":"account"},"metadata":{"created_time":"2023-03-20T13:37:36.597229688Z","deletion_time":"","destroyed":false,"version":1}}
 account service started....
