@@ -31,5 +31,10 @@ popd
 echo Applying terraform script
 pushd /vagrant/tf
 terraform init -upgrade
-terraform apply -auto-approve
+terraform workspace new development
+terraform apply -target=module.vault_dev -target=module.containers_dev -auto-approve
+terraform workspace new staging
+terraform apply -target=module.vault_stg -target=module.containers_stg -auto-approve
+terraform workspace new production
+terraform apply -target=module.vault_prod -target=module.containers_prod -auto-approve
 popd

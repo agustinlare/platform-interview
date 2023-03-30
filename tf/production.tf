@@ -84,7 +84,7 @@ module "containers_prod" {
     },
     {
         name      = "frontend"
-        image     = "docker.io/nginx:latest"
+        image     = "docker.io/nginx:1.22.0-alpine"
         networks  = "vagrant_production"
         env       = []
         ports     = [{
